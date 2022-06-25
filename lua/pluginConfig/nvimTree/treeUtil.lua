@@ -1,28 +1,12 @@
 local lib = require'nvim-tree.lib'
-local openfile = require'nvim-tree.actions.open-file'
-local actions = require'telescope.actions'
-local action_state = require'telescope.actions.state'
 local M = {}
 
-local view_selection = function(prompt_bufnr, map)
-  actions.select_default:replace(function()
-    actions.close(prompt_bufnr)
-    local selection = action_state.get_selected_entry()
-    local filename = selection.filename
-    if (filename == nil) then
-      filename = selection[1]
-    end
-    openfile.fn('preview', filename)
-  end)
-  return true
+function M.launch_live_grep()
+  return vim.api.nvim_command("Telescope live_grep") 
 end
 
-function M.launch_live_grep(opts)
-  return M.launch_telescope("live_grep", opts)
-end
-
-function M.launch_find_files(opts)
-  return M.launch_telescope("find_files", opts)
+function M.launch_find_files()
+  return vim.api.nvim_command("Telescope find_files")
 end
 
 function M.launch_telescope(func_name, opts)
@@ -43,7 +27,6 @@ function M.launch_telescope(func_name, opts)
   opts = opts or {}
   opts.cwd = basedir
   opts.search_dirs = { basedir }
-  opts.attach_mappings = view_selection
   return require("telescope.builtin.files")[func_name](opts)
 end
 
@@ -65,6 +48,10 @@ end
 
 function M.gitStatus()
   vim.cmd("!git status")
+end
+
+function M.gitDiff()
+  vim.cmd("!git diff ")
 end
 
 function M.gitRm()
@@ -103,14 +90,12 @@ function M.edit_or_open()
     -- Just copy what's done normally with vsplit
     if node.link_to and not node.nodes then
         require('nvim-tree.actions.open-file').fn(action, node.link_to)
-        view.close() -- Close the tree if file was opened
 
     elseif node.nodes ~= nil then
         lib.expand_or_collapse(node)
 
     else
         require('nvim-tree.actions.open-file').fn(action, node.absolute_path)
-        view.close() -- Close the tree if file was opened
     end
 
 end
@@ -131,9 +116,6 @@ function M.vsplit_preview()
         require('nvim-tree.actions.open-file').fn(action, node.absolute_path)
 
     end
-
-    -- Finally refocus on tree if it was lost
-    view.focus()
 end
 
 return M
