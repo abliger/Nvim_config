@@ -83,8 +83,12 @@ function M.gitCommit()
   end)
 end
 
+function M.gitLog()
+  vim.cmd("!git log")
+end
+
 function M.gitPush()
-  vim.cmd("silent !git push origin master")
+  vim.cmd("!git push origin master")
 end
 
 function M.collapse_all()

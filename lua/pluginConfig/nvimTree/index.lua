@@ -41,6 +41,7 @@ nvim_tree.setup({
               { key = "gc", cb = custom_callback "gitCommit" },                
               { key = "gp", cb = custom_callback "gitPush" },                
               { key = "gs", cb = custom_callback "gitStatus" },                
+              { key = "gl", cb = custom_callback "gitLog" },                
               { key = "gr", cb = custom_callback "gitRm" },                
 	      { key = "l", action = "edit", action_cb = edit_or_open }, 
 	      { key = "L", action = "vsplit_preview", action_cb = vsplit_preview }, 
