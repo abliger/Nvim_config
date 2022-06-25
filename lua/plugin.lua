@@ -37,6 +37,8 @@ packer.startup({
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', "moll/vim-bbye"}
+
   end,
   config={}
 })

@@ -63,6 +63,30 @@ function M.gitAdd()
   lib.refresh_tree()
 end
 
+function M.gitStatus()
+  vim.cmd("!git status")
+end
+
+function M.gitRm()
+  vim.ui.input({ prompt = 'Enter filename for git rm: '}, function(name)
+    if name then
+      vim.cmd("silent !git rm -f \'" .. name .. "\'")
+    end
+  end)
+end
+
+function M.gitCommit()
+  vim.ui.input({ prompt = 'Enter message for git commit: ' }, function(message)
+    if message then
+    vim.cmd("silent !git commit -m \'".. message .."\'")
+    end
+  end)
+end
+
+function M.gitPush()
+  vim.cmd("silent !git push origin master")
+end
+
 function M.collapse_all()
     require("nvim-tree.actions.collapse-all").fn()
 end

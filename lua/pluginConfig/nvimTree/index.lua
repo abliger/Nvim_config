@@ -38,6 +38,10 @@ nvim_tree.setup({
               { key = "<c-f>", cb = custom_callback "launch_find_files" },
               { key = "<c-g>", cb = custom_callback "launch_live_grep" },
               { key = "ga", cb = custom_callback "gitAdd" },                
+              { key = "gc", cb = custom_callback "gitCommit" },                
+              { key = "gp", cb = custom_callback "gitPush" },                
+              { key = "gs", cb = custom_callback "gitStatus" },                
+              { key = "gr", cb = custom_callback "gitRm" },                
 	      { key = "l", action = "edit", action_cb = edit_or_open }, 
 	      { key = "L", action = "vsplit_preview", action_cb = vsplit_preview }, 
 	      { key = "H", action = "collapse_all", action_cb = collapse_all }, 
@@ -78,4 +82,3 @@ nvim_tree.setup({
         cmd = 'open', -- mac 直接设置为 open
     },
 })
-vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>" ,{silent = true, noremap = true})
