@@ -7,7 +7,7 @@ end
 local function custom_callback(callback_name)
   return string.format(":lua require'pluginConfig/nvimTree/treeUtil'.%s()<CR>", callback_name)
 end
-
+treeUtil = require('pluginConfig.nvimTree.treeUtil')
 nvim_tree.setup({
   -- 不显示 git 状态图标
   git = {
@@ -44,9 +44,9 @@ nvim_tree.setup({
         { key = 'gd', cb = custom_callback('gitDiff') },
         { key = 'gl', cb = custom_callback('gitLog') },
         { key = 'gr', cb = custom_callback('gitRm') },
-        { key = 'l', action = 'edit', action_cb = edit_or_open },
-        { key = 'L', action = 'vsplit_preview', action_cb = vsplit_preview },
-        { key = 'H', action = 'collapse_all', action_cb = collapse_all },
+        { key = 'l', action = 'edit', action_cb = treeUtil.edit_or_open },
+        { key = 'L', action = 'vsplit_preview', action_cb = treeUtil.vsplit_preview },
+        { key = 'H', action = 'collapse_all', action_cb = treeUtil.collapse_all },
         { key = 'v', action = 'vsplit' },
         { key = 'h', action = 'split' },
         -- 显示隐藏文件

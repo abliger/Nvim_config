@@ -7,7 +7,7 @@ api.nvim_command('set nu')
 api.nvim_command('set mouse=a')
 api.nvim_command('command -nargs=? OpenConfig edit ' .. fn.stdpath('config') .. '/<args>')
 
-require('tool/kb-switch')
+require('autocmd')
 require('plugin')
 require('pluginConfig/nvimTree/index')
 require('pluginConfig/bufferline/index')

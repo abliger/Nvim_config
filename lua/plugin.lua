@@ -30,6 +30,7 @@ packer.startup({
   function(use)
     -- Packer 可以升级自己
     use('wbthomason/packer.nvim')
+    use('brglng/vim-im-select')
     use({
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -56,7 +57,7 @@ packer.startup({
     -- 常见编程语言代码段
     use('rafamadriz/friendly-snippets')
     use({ 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' })
-    use("folke/lua-dev.nvim")
+    use('folke/lua-dev.nvim')
   end,
   config = {},
 })
