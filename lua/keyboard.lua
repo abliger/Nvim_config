@@ -3,6 +3,8 @@ local map = vim.api.nvim_set_keymap
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 local opt = { noremap = true, silent = true }
+map('i', '<C-s>', '<Esc>|:write<CR>|a', opt)
+map('n', '<C-s>', ':write<CR>', opt)
 map('t', '<Esc>', '<C-\\><C-N>', opt)
 map('t', '<C-t>q', '<C-\\><C-N>:q<CR>', opt)
 map('n', '<leader>t', ':set splitbelow| 5sp | set nosplitbelow | terminal<CR>', opt)
@@ -13,7 +15,7 @@ map('n', '<C-k>', '4k', opt)
 map('n', '<C-u>', '9k', opt)
 map('n', '<C-d>', '9j', opt)
 
-map('n', '<C-h>', ':NvimTreeToggle<cr>', opt)
+map('n', '<C-h>', ':NvimTreeToggle<CR>', opt)
 -- 左右Tab切换
 map('n', ']b', ':BufferLineCyclePrev<CR>', opt)
 map('n', '[b', ':BufferLineCycleNext<CR>', opt)

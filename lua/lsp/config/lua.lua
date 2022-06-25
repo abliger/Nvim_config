@@ -2,6 +2,7 @@
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
+
 local opts = {
   settings = {
     Lua = {
@@ -41,10 +42,10 @@ local opts = {
     require('keyboard').mapLSP(buf_set_keymap)
   end,
 }
-
 -- 查看目录等信息
 return {
   on_setup = function(server)
-    server:setup(opts)
+    opts = require("lua-dev").setup({ lspconfig = opts })
+    server.setup(opts)
   end,
 }

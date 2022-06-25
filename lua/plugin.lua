@@ -56,6 +56,7 @@ packer.startup({
     -- 常见编程语言代码段
     use('rafamadriz/friendly-snippets')
     use({ 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' })
+    use("folke/lua-dev.nvim")
   end,
   config = {},
 })
