@@ -1,5 +1,5 @@
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local paccker_bootstrap
+
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.notify("正在安装Pakcer.nvim，请稍后...")
   paccker_bootstrap = fn.system({
@@ -24,16 +24,29 @@ end
 local status_ok, packer = pcall(require, "packer")
 
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
+	use 'wbthomason/packer.nvim'
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+	-- color
+	use 'navarasu/onedark.nvim' 				-- 代码样式
+	use 'nvim-treesitter/nvim-treesitter'			-- 区分关键字	
+
+	-- lint
+
+	-- rust
+	use 'neovim/nvim-lspconfig'
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
+
+	use 'simrat39/rust-tools.nvim'
+
+	-- Debugging
+	
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if packer_bootstrap then
+	require('packer').sync()
+	end
 end)
 if not status_ok then
   vim.notify("没有安装 packer.nvim")

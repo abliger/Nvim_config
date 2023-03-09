@@ -74,10 +74,40 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/Users/fengsixue/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   }
 }
 
