@@ -9,7 +9,6 @@ if is_mac then
       vim.cmd(":silent :!~/.config/nvim/im-select.exe 1033")
     end
     autocmd("InsertLeave", {
-      group = myAutoGroup,
       callback = windowsInsertLeave,
     })
 else
@@ -23,11 +22,9 @@ else
     end
 
     autocmd("InsertLeave", {
-      group = myAutoGroup,
       callback = macInsertLeave,
     })
     autocmd("InsertEnter", {
-      group = myAutoGroup,
       callback = macInsertEnter,
     })
 end
