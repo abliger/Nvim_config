@@ -11,6 +11,7 @@ require 'null_ls'
 require 'format/init'
 require 'autoCommand'
 require 'keymap'
+require 'cmp/cmp'
 
 -- filetype
 -- ftplugin/lua/init
