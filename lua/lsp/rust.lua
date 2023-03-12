@@ -161,6 +161,9 @@ local opts = {
 		-- standalone file support
 		-- setting it to false may improve startup time
 		standalone = true,
+		on_attach = function(_, bufnr)
+			require('keymap').map(bufnr)
+		end,
 	}, -- rust-analyzer options
 
 	-- debugging stuff

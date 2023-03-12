@@ -1,4 +1,7 @@
 return {
+	on_attach = function(_, bufnr)
+		require('keymap').map(bufnr)
+	end,
 	settings = {
 		Lua = {
 			runtime = {
