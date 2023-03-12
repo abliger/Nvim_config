@@ -1,5 +1,4 @@
 local install_path = Fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
 if Fn.empty(Fn.glob(install_path)) > 0 then
 	vim.notify '正在安装Pakcer.nvim，请稍后...'
 	Fn.system {
@@ -54,10 +53,10 @@ packer.startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-nvim-lsp-signature-help'
 	use 'hrsh7th/cmp-path'
-	use 'neovim/nvim-lspconfig'
 	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'hrsh7th/cmp-cmdline'
+	use 'onsails/lspkind.nvim'
 
 	-- rust
 	use 'simrat39/rust-tools.nvim'
