@@ -1,5 +1,5 @@
-fn = vim.fn
-api = vim.api
+Fn = vim.fn
+Api = vim.api
 
 require 'kbswitch'
 require 'plugins'

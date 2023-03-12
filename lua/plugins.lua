@@ -1,8 +1,8 @@
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = Fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
-if fn.empty(fn.glob(install_path)) > 0 then
+if Fn.empty(Fn.glob(install_path)) > 0 then
 	vim.notify '正在安装Pakcer.nvim，请稍后...'
-	paccker_bootstrap = fn.system {
+	Fn.system {
 		'git',
 		'clone',
 		'--depth',
@@ -13,7 +13,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	}
 
 	-- https://github.com/wbthomason/packer.nvim/issues/750
-	local rtp_addition = vim.fn.stdpath 'data' .. '/site/pack/*/start/*'
+	local rtp_addition = vim.Fn.stdpath 'data' .. '/site/pack/*/start/*'
 	if not string.find(vim.o.runtimepath, rtp_addition) then
 		vim.o.runtimepath = rtp_addition .. ',' .. vim.o.runtimepath
 	end
@@ -35,7 +35,7 @@ packer.startup(function(use)
 	}
 
 	-- color
-	use 'navarasu/onedark.nvim' -- 代码样式
+	use 'navarasu/onedark.nvim'    -- 代码样式
 	use 'nvim-treesitter/nvim-treesitter' -- 区分关键字
 
 	-- lint

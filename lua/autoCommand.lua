@@ -1,3 +1,3 @@
-api.nvim_command('command -nargs=? OpenConfig edit ' .. fn.stdpath('config') .. '/<args>')
-api.nvim_command('colorscheme onedark')
+Api.nvim_command('command -nargs=? OpenConfig edit ' .. Fn.stdpath('config') .. '/<args>')
+Api.nvim_command('colorscheme onedark')
 -- api.nvim_command('TSBufToggle highlight')

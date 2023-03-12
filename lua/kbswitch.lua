@@ -6,7 +6,7 @@ mode.current_mode = ''
 local myAutoGroup = vim.api.nvim_create_augroup('myAutoGroup', {
 	clear = true,
 })
-local is_mac = fn.has 'mac' or fn.has 'unix' or fn.has 'linux'
+local is_mac = Fn.has 'mac' or Fn.has 'unix' or Fn.has 'linux'
 if is_mac then
 	local windowsInsertLeave = function()
 		vim.cmd ':silent :!~/.config/nvim/im-select.exe 1033'
