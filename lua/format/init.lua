@@ -10,7 +10,7 @@ require('mason-null-ls').setup_handlers {
 	stylua = function(source_name, methods)
 		null_ls.register(null_ls.builtins.formatting.stylua)
 	end,
-	remark = function(source_name, methods)
+	remark_cli = function(source_name, methods)
 		null_ls.register(null_ls.builtins.formatting.remark)
 	end,
 }
