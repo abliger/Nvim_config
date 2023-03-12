@@ -1,6 +1,6 @@
 require('mason').setup()
 require('mason-lspconfig').setup {
-	ensure_installed = { 'rust_analyzer',"lua_ls" },
+	ensure_installed = { 'rust_analyzer', 'lua_ls' },
 }
 local opts = require 'lsp/rust'
 require('mason-lspconfig').setup_handlers {

@@ -35,7 +35,7 @@ packer.startup(function(use)
 	}
 
 	-- color
-	use 'navarasu/onedark.nvim'    -- 代码样式
+	use 'navarasu/onedark.nvim' -- 代码样式
 	use 'nvim-treesitter/nvim-treesitter' -- 区分关键字
 
 	-- lint
