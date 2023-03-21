@@ -34,3 +34,4 @@ buffer
 |`<c-q>`|选中的buff 写入到光标位置|
 |`<Tab>`|切换buff|
 |`<S-Tab>`|切换buff|
+

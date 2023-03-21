@@ -25,6 +25,9 @@ local status_ok, packer = pcall(require, 'packer')
 packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- gender random word
+	use { 'derektata/lorem.nvim' }
+
 	-- change nvim structures
 	use {
 		'nvim-neo-tree/neo-tree.nvim',
