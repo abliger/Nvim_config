@@ -22,14 +22,14 @@ local async_formatting = function(bufnr)
 			end
 
 			-- don't apply results if buffer is unloaded or has been modified
-			if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, 'modified') then
+			if not Api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, 'modified') then
 				return
 			end
 
 			if res then
 				local client = vim.lsp.get_client_by_id(ctx.client_id)
 				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or 'utf-16')
-				vim.api.nvim_buf_call(bufnr, function()
+				Api.nvim_buf_call(bufnr, function()
 					vim.cmd 'silent noautocmd update'
 				end)
 			end
@@ -39,7 +39,7 @@ end
 
 local null_ls = require 'null-ls'
 
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+local augroup = Api.nvim_create_augroup('LspFormatting', {})
 
 null_ls.setup {
 	-- add your sources / config options here
@@ -47,8 +47,8 @@ null_ls.setup {
 	debug = false,
 	on_attach = function(client, bufnr)
 		if client.supports_method 'textDocument/formatting' then
-			vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-			vim.api.nvim_create_autocmd('BufWritePost', {
+			Api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+			Api.nvim_create_autocmd('BufWritePost', {
 				group = augroup,
 				buffer = bufnr,
 				callback = function()

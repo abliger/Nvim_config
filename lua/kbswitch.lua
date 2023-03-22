@@ -1,13 +1,14 @@
-local autocmd = vim.api.nvim_create_autocmd
+local autocmd = Api.nvim_create_autocmd
 local mode = {}
 -- 中英文切换
 mode.default_mode = 'com.apple.keylayout.ABC'
 mode.current_mode = ''
-local myAutoGroup = vim.api.nvim_create_augroup('myAutoGroup', {
+
+local myAutoGroup = Api.nvim_create_augroup('myAutoGroup', {
 	clear = true,
 })
 local is_mac = Fn.has 'mac' or Fn.has 'unix' or Fn.has 'linux'
-if is_mac then
+if not is_mac then
 	local windowsInsertLeave = function()
 		vim.cmd ':silent :!~/.config/nvim/im-select.exe 1033'
 	end
@@ -17,6 +18,7 @@ if is_mac then
 	})
 else
 	local macInsertLeave = function()
+		mode.current_mode = Fn.system 'im-select'
 		vim.cmd(':silent :!im-select' .. ' ' .. mode.default_mode)
 	end
 	local macInsertEnter = function()
@@ -25,11 +27,11 @@ else
 		end
 	end
 
-	autocmd('InsertLeave', {
+	autocmd({ 'InsertLeave', 'VimLeave' }, {
 		group = myAutoGroup,
 		callback = macInsertLeave,
 	})
-	autocmd('InsertEnter', {
+	autocmd({ 'InsertEnter', 'VimEnter' }, {
 		group = myAutoGroup,
 		callback = macInsertEnter,
 	})
