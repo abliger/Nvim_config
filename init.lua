@@ -12,10 +12,10 @@ require 'format/init'
 require 'autoCommand'
 require 'keymap'
 require 'cmp/cmp'
-require('lorem').setup({
-  sentenceLength = "mixedShort",
-  comma = 0.1
-})
+require('lorem').setup {
+	sentenceLength = 'mixedShort',
+	comma = 0.1,
+}
 
 -- filetype
 -- ftplugin/lua/init

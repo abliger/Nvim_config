@@ -3,6 +3,8 @@ local opts = { noremap = true, silent = true }
 map('n', 'gte', '<cmd>Neotree toggle<cr>', opts)
 map('n', 'gto', '<cmd>Neotree<cr>', opts)
 map('n', '<C-p>', '<cmd>MarkdownPreview<cr>', opts)
+map('v', '<C-c>', '"+y', opts)
+map('v', '<C-x>', '"+c', opts)
 local codeMap = {}
 function codeMap.map(bufnr)
 	local rt = require 'rust-tools'
@@ -30,7 +32,6 @@ function codeMap.map(bufnr)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 end
 return codeMap
--- map('i', '(', '()<ESC>i', opts)
 -- map('i', '[', '[]<ESC>i', opts)
 -- map('i', '{', '{}<ESC>i', opts)
 -- map('i', '<', '<><ESC>i', opts)

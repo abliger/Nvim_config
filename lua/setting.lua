@@ -1,4 +1,5 @@
 Api.nvim_command 'set nu'
+Api.nvim_command 'set linebreak'
 Api.nvim_command 'set autoindent'
 Api.nvim_command 'set ruler'
 Api.nvim_command 'set showmode'
