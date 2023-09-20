@@ -18,7 +18,10 @@ require('mason-lspconfig').setup_handlers {
 	['lua_ls'] = function()
 		require('lspconfig').lua_ls.setup(require 'lsp/lua')
 	end,
-	-- ['marksman'] = function()
-	-- 	require('lspconfig').marksman.setup {}
-	-- end,
+	['html'] = function()
+		require('lspconfig').html.setup(require 'lsp/vscode_lsp_config')
+	end,
+	['cssls'] = function()
+		require('lspconfig').cssls.setup(require 'lsp/vscode_lsp_config')
+	end,
 }
